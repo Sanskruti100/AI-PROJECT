@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Note Assistant</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>AI Note Assistant</h1>
+    <form method="POST" action="/ask">
+        <input type="text" name="message" placeholder="Ask something..." required>
+        <button type="submit">Send</button>
+    </form>
+
+    {% if user_message %}
+        <p><strong>You:</strong> {{ user_message }}</p>
+        <p><strong>AI:</strong> {{ ai_message }}</p>
+    {% endif %}
+</body>
+</html>
+
