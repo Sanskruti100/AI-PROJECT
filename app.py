@@ -1,9 +1,15 @@
 from flask import Flask, render_template, request
 import requests
+import os
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
 
 app = Flask(__name__)
 
-OPENROUTER_API_KEY = "sk-or-..........."
+# Get API key from environment
+OPENROUTER_API_KEY = os.getenv('OPENROUTER_API_KEY')
 API_URL = "https://openrouter.ai/api/v1/chat/completions"
 HEADERS = {
     "Authorization": f"Bearer {OPENROUTER_API_KEY}",
